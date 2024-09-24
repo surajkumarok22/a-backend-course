@@ -2,12 +2,13 @@ import dotenv from "dotenv";
 import express from "express"; // Import express
 import connectDB from "./db/index.js"; // Your database connection
 // import { DB_NAME } from "./constants"; // Uncomment if you need DB_NAME
+import {app} from "./app.js";
 
 dotenv.config({
   path: './env'
 });
 
-const app = express(); // Create an Express app
+// const app = express(); // Create an Express app
 
 connectDB()
   .then(() => {
@@ -18,6 +19,9 @@ connectDB()
   .catch((err) => {
     console.log("MONGODB connection failed !!!", err);
   });
+
+
+  
 
 // Uncomment and use this block if needed
 /*
