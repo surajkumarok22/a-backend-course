@@ -19,6 +19,7 @@ const registerUser = asyncHandler(async (req,res) => {
 
   const {  fullName, email, username,password } = req.body
   console.log("email: ",email)
+  console.log("fullName: ",fullName)
 
   // if(fullName === ""){
   //   throw new ApiError(400, "full name is required")
@@ -30,7 +31,7 @@ const registerUser = asyncHandler(async (req,res) => {
     throw new ApiError(400, "all fileds are required")
   }
 
- const existedUser =  User.findOne({
+ const existedUser = await User.findOne({
     $or: [{ username },{ email }]
   })
 

@@ -1,15 +1,15 @@
 import dotenv from "dotenv";
+import { DB_NAME } from "./constants.js";
 import express from "express"; // Import express
 import connectDB from "./db/index.js"; // Your database connection
-// import { DB_NAME } from "./constants"; // Uncomment if you need DB_NAME
 import {app} from "./app.js";
 
 dotenv.config({
   path: './env'
 });
 
-// const app = express(); // Create an Express app
 
+// const app = express(); // Create an Express app
 connectDB()
   .then(() => {
     app.listen(process.env.PORT || 8000, () => {
